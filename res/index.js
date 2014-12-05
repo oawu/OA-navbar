@@ -16,11 +16,13 @@ $(function () {
 
   $('.navbar').OAnavbar ();
 
-
   $('.item').click (function () {
     $(this).addClass ('active').siblings ().removeClass ('active');
     window.location.assign ('#p' + $(this).index ());
-  }).filter ('.active').click ();
+  })
+
+  var $active = $('.item').filter ('.active');
+  $active.length ? $active.click () : $('.item').eq (!location.hash ? 0 : location.hash.slice (location.hash.indexOf ('p') + 1)).click ();
 
   $('.item').each (function (i) {
     Path.map ("#p" + i).to (function () {
