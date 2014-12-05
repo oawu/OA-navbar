@@ -12,4 +12,5 @@ ga('create', 'UA-46121102-7', 'auto');
 ga('send', 'pageview');
 
 $(function () {
+  $('.navbar').OAnavbar ();
 });

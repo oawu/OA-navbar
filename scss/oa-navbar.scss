@@ -6,16 +6,17 @@
 @import "_oa";
 
 $navbarBackgroundColor: rgba(233, 234, 237, 1);
-$navbarHeight: 50px;
+$navbarHeight: 40px;
 $navMarginTop: 0;
 $navMarginBottom: 10px;
-$navbarItemMarginTop: 10px;
+
+$navbarItemMarginTop: 8px;
 $navbarItemMarginRight: 2px;
-$navbarItemMarginBottom: 10px;
+$navbarItemMarginBottom: 5px;
 $navbarItemMarginLeft: 2px;
 
 $lineColor: rgba(162, 162, 162, 1);
-$arrowSize: 10px;
+$arrowSize: 7px;
 
 .oa-navbar {
   width: 100%;
@@ -42,6 +43,7 @@ $arrowSize: 10px;
     & {
       position: relative;
       margin: $navMarginTop auto $navMarginBottom auto;
+      width: $mainWidth;
     }
   }
   @media screen and (min-width: $mainWidth + 2) {
@@ -83,7 +85,7 @@ $arrowSize: 10px;
       .oa-navbar-item {
         position: relative;
         display: inline-block;
-        min-width: 100px;
+        min-width: 50px;
         height: $navbarHeight - $navbarItemMarginTop - $navbarItemMarginBottom;
         float: left;
         margin: $navbarItemMarginTop $navbarItemMarginRight $navbarItemMarginBottom $navbarItemMarginLeft;
