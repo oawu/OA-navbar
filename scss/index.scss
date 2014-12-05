@@ -8,8 +8,51 @@
 html {
   body {
     #container {
-      border: 1px solid red;
+      font-size: 20px;
+      font-size: 16px;
+      text-align: left;
+      padding: 5px 10px;
+      line-height: 25px;
 
+      @include opacity(0);
+      @include transition(all 0.3s ease-out);
+
+      &.show {
+        @include opacity(1);
+      }
+      pre {
+        font-size: 13px;
+        margin-top: 5px;
+        @include overflow-break();
+      }
+      .about {
+        padding: 0;
+        padding-top: 30px;
+        .info {
+          & + .info {
+            margin-top: 2px;
+          }
+          .key, .value {
+            display: inline-block;
+            padding: 5px;
+            float: left;
+            width: 150px;
+            text-align: right;
+            letter-spacing: 1px;
+          }
+          .key {
+            letter-spacing: 4px;
+            &:after {
+              content: ":";
+
+            }
+          }
+          .value {
+            text-align: left;
+            width: calc(100% - 150px);
+          }
+        }
+      }
     }
     .sss {
       border: 1px solid red;

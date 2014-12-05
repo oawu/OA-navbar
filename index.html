@@ -7,6 +7,11 @@
 
     <link href="./css/frame.css" rel="stylesheet" type="text/css">
     <script src="./res/jquery_v1.10.2/jquery-1.10.2.min.js" language="javascript" type="text/javascript" /></script>
+    <script src="./res/underscore_v1.7.0/underscore-min.js" language="javascript" type="text/javascript" /></script>
+    <script src="./res/pathjs_v0.8.4/path.min.js" language="javascript" type="text/javascript" /></script>
+
+    <link href="./res/prettify/prettify.css" rel="stylesheet" type="text/css">
+    <script src="./res/prettify/prettify.js" language="javascript" type="text/javascript" /></script>
 
     <link href="./css/oa-navbar.css" rel="stylesheet" type="text/css">
     <script src="./res/oa-navbar.js" language="javascript" type="text/javascript" /></script>
@@ -18,40 +23,146 @@
   <body lang="zh-tw">
 
     <div class='navbar'>
-      <div class='item'>關於</div>
-      <div class='item active'>解說</div>
-      <div class='item'>測試</div>
-      <div class='item'>eqweeqweeqweeqwe</div>
-      <div class='item'>eqweeqweeqweeqweeqwe</div>
-      <div class='item'>eqweeqweeqweeqweeqwe</div>
+      <div class='item'>說明</div>
+      <div class='item'>scss</div>
+      <div class='item'>options</div>
+      <div class='item active'>關於</div>
     </div>
 
-    <div id='container'>
-      asdasd
-      <hr />asdasd
-      <hr />asdasd
-      <hr />asdasd
-      <hr />asdasd
-      <hr />asdasd
-      <hr />asdasd
-      <hr />asdasd
-      <hr />asdasd
-      <hr />asdasd
-      <hr />asdasd
-      <hr />asdasd
-      <hr />asdasd
-      <hr />asdasd
-      <hr />asdasd
-      <hr />asdasd
-      <hr />asdasd
-      <hr />asdasd
-      <hr />asdasd
-      <hr />asdasd
-      <hr />asdasd
-      <hr />asdasd
-      <hr />asdasd
-      <hr />asdasd
-      <hr />
-    </div>
+    <div id='container'></div>
+
+    <script id='_p0' type='text/x-html-template'>
+      1. 這是一個前端 jQuery extend function，主要架構於 <a href='http://jquery.com/' target='_blank'>jQuery</a>以及<a href='http://compass-style.org/' target='_blank'>scss、sass</a>。
+      <br />
+      <br />
+      2. 開發者可自行更換 scss變數、js extend options 來更換樣式
+      <br />
+      <br />
+      3. 此頁面的 responsive 則是參考 <a href='https://www.facebook.com/' target='_blank'>Facebook</a> 的方式。
+      <br />
+      <br />
+      4. 加入 jquery.js
+<pre class='js prettyprint' data-path='html'>
+  &lt;script src=&quot;jquery-1.10.2.min.js&quot; language=&quot;javascript&quot; type=&quot;text/javascript&quot; /&gt;&lt;/script&gt;
+</pre>
+      <br />
+      <br />
+      5. 加入 oa-navbar 的 css、js
+<pre class='html prettyprint' data-path='html'>
+  &lt;link href=&quot;oa-navbar.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
+  &lt;script src=&quot;oa-navbar.js&quot; language=&quot;javascript&quot; type=&quot;text/javascript&quot; /&gt;&lt;/script&gt;
+</pre>
+      <br />
+      <br />
+      6. Html sample
+<pre class='html prettyprint' data-path='html'>
+  &lt;div class='navbar'&gt;
+    &lt;div class='item'&gt;關於&lt;/div&gt;
+    &lt;div class='item active'&gt;解說&lt;/div&gt;
+    &lt;div class='item'&gt;測試&lt;/div&gt;
+    &lt;div class='item'&gt;選項一&lt;/div&gt;
+    &lt;div class='item'&gt;選項二&lt;/div&gt;
+    &lt;div class='item'&gt;選項三&lt;/div&gt;
+  &lt;/div&gt;
+</pre>
+      <br />
+      <br />
+      7. Javascript sample
+<pre class='javascript prettyprint' data-path='javascript'>
+  $('.navbar').OAnavbar ();
+</pre>
+<br />
+      8. 效果
+      <br />
+      <img src='img/01.png' />
+    </script>
+
+
+    <script id='_p1' type='text/x-html-template'>
+      1. 可在 oa-navbar.scss 中，設定基本變數後再經由 compass 編譯成 oa-navbar.css，編譯完成後的 oa-navbar.css 便可在 html 中被匯入引用。
+      <br />
+      <br />
+      2. oa-navbar.scss 可設定的基本參數如下 :
+<pre class='scss prettyprint' data-path='oa-navbar.scss'>
+  /* 整體網頁 */
+  $mainWidth:      960px;                  // 整體網頁 container 的寬度
+  $mainBackground: rgba(233, 234, 237, 1); // 整體網頁的背景
+
+  /* navbar */
+  $navbarBackgroundColor: rgba(233, 234, 237, 1); // navbar 的背景色
+  $navbarHeight:          40px; // navbar 的高度
+  $navMarginTop:          0;    // navbar 的 margin-top
+  $navMarginBottom:       10px; // navbar 的 margin-bottom
+
+  /* navbar 內的選項 */
+  $navbarItemMarginTop:    8px; // navbar 內選項的 margin-top
+  $navbarItemMarginRight:  2px; // navbar 內選項的 margin-right
+  $navbarItemMarginBottom: 5px; // navbar 內選項的 margin-bottom
+  $navbarItemMarginLeft:   2px; // navbar 內選項的 margin-left
+
+  /* navbar 其他部分 */
+  $lineColor: rgba(162, 162, 162, 1); // navbar 下方的 border color
+  $arrowSize: 7px;                    // active 選項下的箭頭大小
+</pre>
+      <br />
+      <br />
+      3. 將 oa-navbar.scss 設定好後，進入 compass 資料夾內，並下 'compass watch' 指令即可編譯出 oa-navbar.css，當然前提必須要有安裝 compass。
+    </script>
+    <script id='_p2' type='text/x-html-template'>
+      Html sample
+<pre class='html prettyprint' data-path='html'>
+  &lt;div class='navbar'&gt;
+    &lt;div class='nav'&gt;關於&lt;/div&gt;
+    &lt;div class='nav active'&gt;解說&lt;/div&gt;
+    &lt;div class='nav'&gt;測試&lt;/div&gt;
+    &lt;div class='nav'&gt;選項一&lt;/div&gt;
+    &lt;div class='nav'&gt;選項二&lt;/div&gt;
+    &lt;div class='nav'&gt;選項三&lt;/div&gt;
+  &lt;/div&gt;
+</pre>
+      <br />
+      <br />
+      Javascript sample
+<pre class='scss prettyprint' data-path='javascript'>
+  $('.navbar').OAnavbar ({
+    itemSelector: '.nav', // 子元素的 selector
+    itemsTextAlign: 'right' // navbar 內的選項把放方式，有 center、left、right 三種
+  });
+</pre>
+      <br />
+      <br />
+      效果
+      <br />
+      <img src='img/31.npg' />
+    </script>
+    <script id='_p3' type='text/x-html-template'>
+      <div class='about'>
+        <div class='info clearfix'>
+          <div class='key'>作者名稱</div>
+          <div class='value'><a href='http://www.ioa.tw' target='_blank'>OA Wu</a></div>
+        </div>
+        <div class='info clearfix'>
+          <div class='key'>E-mail</div>
+          <div class='value'>comdan66@gmail.com</div>
+        </div>
+        <div class='info clearfix'>
+          <div class='key'>作品名稱</div>
+          <div class='value'>OA-navbar</div>
+        </div>
+        <div class='info clearfix'>
+          <div class='key'>最新版本</div>
+          <div class='value'>1.0.0</div>
+        </div>
+        <div class='info clearfix'>
+          <div class='key'>GitHub</div>
+          <div class='value'><a href='https://github.com/comdan66/OA-navbar' target='_blank'>OA-navbar</a></div>
+        </div>
+        <div class='info clearfix'>
+          <div class='key'>更新日期</div>
+          <div class='value'>2014/12/05</div>
+        </div>
+      </div>
+      </div>
+    </script>
   </body>
 </html>

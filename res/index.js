@@ -12,5 +12,24 @@ ga('create', 'UA-46121102-7', 'auto');
 ga('send', 'pageview');
 
 $(function () {
+  $container = $('#container');
+
   $('.navbar').OAnavbar ();
+
+
+  $('.item').click (function () {
+    $(this).addClass ('active').siblings ().removeClass ('active');
+    window.location.assign ('#p' + $(this).index ());
+  }).filter ('.active').click ();
+
+  $('.item').each (function (i) {
+    Path.map ("#p" + i).to (function () {
+      if ($('#_p' + i).length) $container.append (_.template ($('#_p' + i).html (), {}) ({})).addClass ('show').find ('.prettyprint').addClass ('linenums');
+      prettyPrint ();
+    }).enter (function () {
+      $container.empty ().removeClass ('show');
+    });
+  });
+
+  Path.listen();
 });
