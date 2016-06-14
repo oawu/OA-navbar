@@ -14,7 +14,7 @@
 
 * 此頁面的 responsive 則是參考 [Facebook](https://www.facebook.com/) 的方式。
 
-* Demo 範例頁面: [http://comdan66.github.io/OA-navbar/](http://comdan66.github.io/OA-navbar/)
+* Demo 範例頁面: [http://works.ioa.tw/OA-navbar/](http://works.ioa.tw/OA-navbar/)
 
 
 <br/>
